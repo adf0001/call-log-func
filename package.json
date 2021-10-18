@@ -1,0 +1,11 @@
+{
+  "name": "call-log-func",
+  "version": "1.0.1",
+  "description": "call log function tool",
+  "main": "call-log-func.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "fwg",
+  "license": "ISC"
+}
