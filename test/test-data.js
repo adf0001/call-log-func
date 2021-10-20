@@ -1,13 +1,9 @@
-﻿
-//if (typeof setHtmlPage === "function") setHtmlPage("title", "10em", 1);	//html page setting
+﻿// global, for html page
+call_log_func = require("../call-log-func.js");
 
-var call_log_func;
-try { call_log_func = require("../call-log-func.js"); }		//commonJs env
-catch (ex) { call_log_func = require("call-log-func"); }		//html bundle env
+module.exports = {
 
-var testData = {		//global variable
-
-	"call-log-func": function (done) {
+	"call_log_func()": function (done) {
 		var a = [];		//to save result
 
 		var func1 = function (message) { a.push(message); console.log("log1: " + message); };
@@ -44,14 +40,11 @@ var testData = {		//global variable
 		abc5
 		*/
 	},
-
-	/*
-	"": function(done){
-		return 
-	},
-	*/
 };
 
+// for html page
+//if (typeof setHtmlPage === "function") setHtmlPage("title", "10em", 1);	//page setting
+if (typeof showResult !== "function") showResult = function (text) { console.log(text); }
+
 //for mocha
-if (typeof showResult !== "function") showResult = function (text) { console.log(text); }	//global html tool
-if (typeof describe === "function") describe('mocha-test', function () { for (var i in testData) { it(i, testData[i]); } });
+if (typeof describe === "function") describe('mocha-test', function () { for (var i in module.exports) { it(i, module.exports[i]); } });

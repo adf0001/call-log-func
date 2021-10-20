@@ -41,6 +41,7 @@
 </body>
 
 <script>
+	var _test_data;
 
 	// page code
 
@@ -79,7 +80,7 @@
 		var name = el.textContent;
 		_ele('inpName').value = name;
 
-		var item = testData[name], sCode;
+		var item = _test_data[name], sCode;
 		if (typeof item === "function") { sCode = ("(\n\t" + item + "\n)(function(ret){doneCallback(ret,'" + name + "')})"); }
 		else { sCode = item; }
 		_ele('txtCode').value = sCode;
@@ -101,7 +102,7 @@
 			runAllDelay = parseInt(delay) || 0;
 			if (runAllDelay < 0) runAllDelay = 0;
 
-			runAllKeys = Object.keys(testData);
+			runAllKeys = Object.keys(_test_data);
 		}
 
 		idx = idx || 0;
@@ -113,7 +114,10 @@
 
 	function onBodyLoad() {
 		setHtmlPage(require("_package_json").name);
-		var ks = Object.keys(testData);
+
+		_test_data = require("_test_data");
+
+		var ks = Object.keys(_test_data);
 		_ele('spCmdList').innerHTML = ks.map(function (v) { return "\n<span class='ht-cmd' name=\"" + v.replace(/\W/g, "-") + "\">" + v + "</span>"; }).join("<br>") +
 			"<div style='font-size:9pt;font-weight:bold;text-align:right;'>count: <i class='ht-cmd' onclick='runAll()' title='run all ...'>" + ks.length + "</i></div>";
 	}
@@ -149,7 +153,5 @@
 </script>
 
 <script src='../debug/bundle.debug.js'></script>
-
-<script src='./test-data.js'></script>
 
 </html>

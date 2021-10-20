@@ -1,11 +1,26 @@
 {
   "name": "call-log-func",
-  "version": "1.0.1",
-  "description": "call log function tool",
+  "version": "1.0.2",
+  "description": "a call log function tool",
   "main": "call-log-func.js",
   "scripts": {
     "test": "mocha"
   },
   "author": "fwg",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adf0001/call-log-func.git"
+  },
+  "keywords": [
+    "log",
+    "call"
+  ],
+  "bugs": {
+    "url": "https://github.com/adf0001/call-log-func/issues"
+  },
+  "homepage": "https://github.com/adf0001/call-log-func#readme"
 }

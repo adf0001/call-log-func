@@ -1,5 +1,5 @@
 # call-log-func
-call log function tool
+a call log function tool
 
 # Install
 ```
